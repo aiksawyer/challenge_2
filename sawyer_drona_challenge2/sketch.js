@@ -4,10 +4,101 @@ function setup() {
 }
 
 function draw() {
+  push();
+  translate(500, 0);
+  scale(.5, .5);
+  drawMonsterSawyer();
+  push();
+  pop();
+  pop();
+  //////
+  push();
+  translate(700, 300);
+  scale(.3, .3);
+  drawMonsterSawyer();
+  push();
+  pop();
+  pop();
+  ////
+  push();
+  translate(0, 0);
+  scale(.2, .2);
+  drawMonsterSawyer();
+  push();
+  pop();
+  pop();
+  ///
+  push();
+  translate(500, 400);
+  scale(.5, .5);
+  drawMonsterSharma(random(255), random(255), random(255));
+  push();
+  pop();
+  pop();
+  ///2
+  push();
+  translate(30, 450);
+  scale(.5, .5);
+  drawMonsterSharma(random(255), random(255), random(255));
+  push();
+  pop();
+  pop();
+  ///2
+  push();
+  translate(830, 250);
+  scale(.3, .3);
+  drawMonsterSharma(random(255), random(255), random(255));
+  push();
+  pop();
+  pop();
+  ///2
+  push();
+  translate(130, 250);
+  scale(.3, .3);
+  fill(180, 182, 184);
+  if (mouseIsPressed === true) {
+    fill(255);
+    triangle(110, 80, 107, 49, 130, 60);
+    triangle(275, 65, 300, 58, 296, 85);
+    rotate(PI / 3.0);
+    println('mouseIsPressed');
+  } else {
+    fill(0);
+    triangle(110, 80, 107, 49, 130, 60);
+    triangle(275, 65, 300, 58, 296, 85);
+  }
   monster3();
- /// drawMonsterSawyer();
-///  drawMonsterSharma(random(255), random(255), random(255));
+  push();
+  pop();
+  pop();
+  ////
+  push();
+  translate(300, 0);
+  scale(.5, .5);
 
+  fill(180, 182, 184);
+  triangle(110, 80, 107, 49, 130, 60);
+  triangle(275, 65, 300, 58, 296, 85);
+  monster3();
+  push();
+  pop();
+  pop();
+  noLoop();
+  ///
+  push();
+  translate(270, 200);
+  scale(.8, .8);
+
+  fill(180, 182, 184);
+  triangle(110, 80, 107, 49, 130, 60);
+  triangle(275, 65, 300, 58, 296, 85);
+  rotate()
+  monster3();
+
+  push();
+  pop();
+  pop();
+  noLoop();
 }
 
 function drawMonsterSawyer() { ///this is the first main monster function
@@ -257,33 +348,34 @@ function drawMonsterSharma(r, g, b) { ///this is second main monster function
 }
 
 
-////---------------------------------------------------
+////---------------------------------------------------------------------------------
 
 
-function monster3() {
+function monster3(r, z) {
+
   legs();
   body();
   abdomen();
   head();
   antenna();
-  arms();
+  arms(r, z);
 }
 
-function legs(){
-   fill(209, 113, 117);
+function legs() {
+  fill(209, 113, 117);
   quad(100, 575, 125, 454, 160, 478, 170, 575); // left
   quad(220, 575, 235, 478, 275, 454, 290, 575); // right
 }
 
-function body(){
+function body() {
   // body
   fill(41, 20, 3);
   ellipse(200, 360, 220, 250); // shell
-  
+
 }
 
 
-function abdomen(){
+function abdomen() {
   // body
   fill(41, 20, 3);
   ellipse(200, 360, 220, 250); // shell
@@ -297,10 +389,10 @@ function abdomen(){
   arc(200, 390, 139, 20, 0, PI);
   arc(200, 420, 109, 20, 0, PI);
   fill(209, 113, 117);
-  
+
 }
 
-function head(){
+function head() {
   ellipse(200, 200, 140, 170); // head
   noStroke();
   fill(157, 67, 67);
@@ -332,21 +424,22 @@ function head(){
   triangle(225, 225, 230, 265, 235, 225); // right fang
 }
 
-function antenna(){
+function antenna() {
   // antena
-  fill(180, 182, 184);
+
   line(160, 128, 120, 70); // left
-  triangle(110, 80, 107, 49, 130, 60);
   line(235, 128, 285, 70); // right
-  triangle(275, 65, 300, 58, 296, 85);
-  
+
+
 }
 
-function arms(){
+function arms(r, z) {
   // arms
+  r = radians(-20);
+  z = radians(50);
   fill(209, 113, 117);
-  rotate(radians(-20));
+  rotate(r);
   ellipse(130, 465, 60, 150); // right
-  rotate(radians(50));
+  rotate(z);
   ellipse(295, 280, 60, 150); // left
 }
